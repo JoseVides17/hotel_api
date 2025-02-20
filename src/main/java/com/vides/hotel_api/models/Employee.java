@@ -32,4 +32,8 @@ public class Employee {
     @OneToMany(mappedBy = "employee")
     private List<Reservation> reservations;
 
+    @ManyToOne
+    @JoinColumn(name = "despartment_id")
+    private Department department;
+
 }

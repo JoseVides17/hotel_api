@@ -32,4 +32,11 @@ public class Client {
     @OneToMany(mappedBy = "client")
     private List<Reservation> reservations;
 
+    @OneToMany(mappedBy = "clientBooking")
+    private List<EventBooking> eventBookings;
+
+    @ManyToOne
+    @JoinColumn(name = "membership_id")
+    private Membership membership;
+
 }

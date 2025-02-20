@@ -38,10 +38,19 @@ public class Room {
     @OneToMany(mappedBy = "room")
     private List<Reservation> reservations;
 
+    @OneToMany(mappedBy = "roomItem")
+    private List<InventoryItem> inventoryItems;
+
     @ManyToMany
     @JoinTable(name = "room_service",
         joinColumns = @JoinColumn(name = "room_id"),
         inverseJoinColumns = @JoinColumn(name = "service_id"))
     private List<Service> services;
+
+    @ManyToMany
+    @JoinTable(name = "room_inventory",
+        joinColumns = @JoinColumn(name = "room_id"),
+        inverseJoinColumns = @JoinColumn(name = "inventory_id"))
+    private List<Inventory> inventories;
 
 }
