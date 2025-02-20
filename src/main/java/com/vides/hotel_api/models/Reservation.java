@@ -39,6 +39,13 @@ public class Reservation {
     @JoinColumn(name = "room_id")
     private Room room;
 
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
+
+    @OneToMany(mappedBy = "reservation")
+    private List<Payment> payments;
+
     @ManyToMany
     @JoinTable(name = "reservation_service",
         joinColumns = @JoinColumn(name = "reservation_id"),
