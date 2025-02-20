@@ -30,4 +30,7 @@ public class User {
     @Column(name = "role")
     private Set<UserRole> roles;
 
+    @OneToOne(mappedBy = "user")
+    private Employee employee;
+
 }
