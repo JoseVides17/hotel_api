@@ -19,7 +19,7 @@ public class Membership {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "memberShip")
+    @OneToMany(mappedBy = "membership")
     private List<Client> clients;
 
     private Integer membershipLevel;
