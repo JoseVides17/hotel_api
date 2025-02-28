@@ -10,6 +10,7 @@ import com.vides.hotel_api.dto.Login.LoginResponse;
 import com.vides.hotel_api.dto.User.UserRequest;
 import com.vides.hotel_api.dto.User.UserResponse;
 import com.vides.hotel_api.models.User;
+import com.vides.hotel_api.models.enums.UserRole;
 import com.vides.hotel_api.util.JWTUtil;
 
 @Service
@@ -43,7 +44,7 @@ public class UserService {
             throw new Exception("Invalid login request");
         }
 
-        return new LoginResponse(this.jwtUtil.generateToken(user.getRole()), "Login exitoso");
+        return new LoginResponse(this.jwtUtil.generateToken(user.getRole().toString()), "Login exitoso");
     }
 
     public UserResponse create(UserRequest userRequest) throws Exception{
@@ -58,11 +59,11 @@ public class UserService {
         User user = new User();
         user.setUsername(userRequest.getUsername());
         user.setPassword(this.bCryptPasswordEncoder.encode(userRequest.getPassword()));
-        user.setRole(userRequest.getRole());
+        user.setRole(UserRole.valueOf(userRequest.getRole()));
 
         this.userRepository.save(user);
 
-        return new UserResponse(user.getUsername(), user.getRole(), "Usuario creado exitosamente");
+        return new UserResponse(user.getUsername(), user.getRole().toString(), "Usuario creado exitosamente");
     }
 
 }

@@ -9,6 +9,5 @@ import com.vides.hotel_api.models.Reservation;
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
     Reservation findByClientEmail(String email);
     Reservation findByRoomId(Long id);
-    Reservation findByServiceId(Long id);
     Reservation findByEmployeeId(Long id);
 }

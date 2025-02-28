@@ -1,5 +1,7 @@
 package com.vides.hotel_api.models;
 
+import com.vides.hotel_api.models.enums.UserRole;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,10 +25,9 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
-    @Column(name = "role")
-    private String role;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, name = "role")
+    private UserRole role;
 
     @OneToOne(mappedBy = "user")
     private Employee employee;

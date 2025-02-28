@@ -7,5 +7,4 @@ import com.vides.hotel_api.models.Membership;
 
 @Repository
 public interface MembershipRepository extends JpaRepository<Membership, Long> {
-    Membership findByClientId(Long clientId);
 }

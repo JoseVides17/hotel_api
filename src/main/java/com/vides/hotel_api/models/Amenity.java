@@ -11,8 +11,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "services")
-public class Service {
+@Table(name = "amenities")
+public class Amenity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +25,9 @@ public class Service {
 
     private Float price;
 
-    @ManyToMany(mappedBy = "services")
+    @ManyToMany(mappedBy = "amenities")
     private List<Room> rooms;
+
+    @ManyToMany(mappedBy = "amenitiesReservation")
+    private List<Reservation> reservations;
 }

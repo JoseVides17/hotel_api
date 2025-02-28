@@ -47,9 +47,9 @@ public class Reservation {
     private List<Payment> payments;
 
     @ManyToMany
-    @JoinTable(name = "reservation_service",
+    @JoinTable(name = "reservation_amenity",
         joinColumns = @JoinColumn(name = "reservation_id"),
-        inverseJoinColumns = @JoinColumn(name = "service_id"))
-    private List<Service> services;
+        inverseJoinColumns = @JoinColumn(name = "amenity_id"))
+    private List<Amenity> amenitiesReservation;
 
 }

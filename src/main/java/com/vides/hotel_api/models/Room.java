@@ -42,10 +42,10 @@ public class Room {
     private List<InventoryItem> inventoryItems;
 
     @ManyToMany
-    @JoinTable(name = "room_service",
+    @JoinTable(name = "room_amenity",
         joinColumns = @JoinColumn(name = "room_id"),
-        inverseJoinColumns = @JoinColumn(name = "service_id"))
-    private List<Service> services;
+        inverseJoinColumns = @JoinColumn(name = "amenity_id"))
+    private List<Amenity> amenities;
 
     @ManyToMany
     @JoinTable(name = "room_inventory",

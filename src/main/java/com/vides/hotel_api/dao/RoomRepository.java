@@ -6,5 +6,4 @@ import com.vides.hotel_api.models.Room;
 
 @Repository
 public interface RoomRepository extends JpaRepository<Room, Long>{
-    Room findByRoomNumber(String roomNumber);
 }

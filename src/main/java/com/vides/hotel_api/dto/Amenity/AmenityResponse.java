@@ -1,11 +1,11 @@
-package com.vides.hotel_api.dto.Service;
+package com.vides.hotel_api.dto.Amenity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class ServiceResponse {
+public class AmenityResponse {
 
     private String name;
     private Float price;
